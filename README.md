@@ -1,4 +1,4 @@
-# 🚀 edgetunnel 2.1
+# 🚀 edgetunnel 2.0
 ![后台页面](./img.png)
 
 - **edgetunnel 最新教程**：https://www.youtube.com/watch?v=tKe9xUuFODA ***必看内容!必看内容!必看内容!!!***
