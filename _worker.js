@@ -189,7 +189,11 @@ export default {
                 const 响应 = new Response('重定向中...', { status: 302, headers: { 'Location': '/login' } });
                 响应.headers.set('Set-Cookie', 'auth=; Path=/; Max-Age=0; HttpOnly');
                 return 响应;
-            } else if (访问路径 === 'sub') {//处理订阅请求
+            }else if(访问路径 === 'ADD.info') {
+                let 本地优选IP = await env.KV.get('ADD.txt') || 'null';
+                if (本地优选IP == 'null') 本地优选IP = (await 生成随机IP(request, config_JSON.优选订阅生成.本地IP库.随机数量, config_JSON.优选订阅生成.本地IP库.指定端口))[1];
+                return new Response(本地优选IP, { status: 200, headers: { 'Content-Type': 'text/plain;charset=utf-8', 'asn': request.cf.asn } });
+            }else if (访问路径 === 'sub') {//处理订阅请求
                 const 订阅TOKEN = await MD5MD5(host + userID);
                 if (url.searchParams.get('token') === 订阅TOKEN) {
                     config_JSON = await 读取config_JSON(env, host, userID, env.PATH);
@@ -1578,5 +1582,3 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
-
-
