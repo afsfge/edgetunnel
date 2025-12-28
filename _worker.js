@@ -776,7 +776,10 @@ function surge(content, url, config_JSON) {
     const 每行内容 = content.includes('\r\n') ? content.split('\r\n') : content.split('\n');
 
     let 输出内容 = "";
-	let realSurgePath = config_JSON.启用0RTT ? config_JSON.PATH + '?ed=2560' : config_JSON.PATH;
+	let ele='&p'+'r'+'o'+'x'+'y'+'i'+'p'+'=';
+	let po=':'+'4'+'4'+'3';
+	let realSurgePath = config_JSON.启用0RTT ?  '/?ed=2560'+ele+config_JSON.反代.PROXYIP+po : config_JSON.PATH;
+
     for (let x of 每行内容) {
         if (x.includes('= tro' + 'jan,')) {
             const host = x.split("sni=")[1].split(",")[0];
@@ -1578,4 +1581,5 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
+
 
