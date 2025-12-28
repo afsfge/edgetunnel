@@ -777,8 +777,8 @@ function surge(content, url, config_JSON) {
 
     let 输出内容 = "";
 	let ele='&p'+'r'+'o'+'x'+'y'+'i'+'p'+'=';
-	let po=':'+'4'+'4'+'3';
-	let realSurgePath = config_JSON.启用0RTT ?  '/?ed=2560'+ele+config_JSON.反代.PROXYIP+po : config_JSON.PATH;
+	let ppi = config_JSON.反代.PROXYIP === 'auto' ? '' :ele+config_JSON.反代.PROXYIP;
+	let realSurgePath = config_JSON.启用0RTT ?  '/?ed=2560'+ ppi: config_JSON.PATH;
 
     for (let x of 每行内容) {
         if (x.includes('= tro' + 'jan,')) {
@@ -1581,5 +1581,6 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
+
 
 
