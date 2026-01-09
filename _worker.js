@@ -1,4 +1,4 @@
-﻿import { connect } from "cloudflare:sockets";
+import { connect } from "cloudflare:sockets";
 let config_JSON, 反代IP = '', 启用SOCKS5反代 = null, 启用SOCKS5全局反代 = false, 我的SOCKS5账号 = '', parsedSocks5Address = {};
 let 缓存反代IP, 缓存反代解析数组, 缓存反代数组索引 = 0, 启用反代兜底 = true;
 let SOCKS5白名单 = ['*tapecontent.net', '*cloudatacdn.com', '*loadshare.org', '*cdn-centaurus.com', 'scholar.google.com'];
@@ -777,8 +777,9 @@ function surge(content, url, config_JSON) {
 
     let 输出内容 = "";
 	let ele='&p'+'r'+'o'+'x'+'y'+'i'+'p'+'=';
+    let ed='/?'+'e'+'d'+'='+'2'+'5'+'6'+'0';
 	let ppi = config_JSON.反代.PROXYIP === 'auto' ? '' :ele+config_JSON.反代.PROXYIP;
-	let realSurgePath = config_JSON.启用0RTT ?  '/?ed=2560'+ ppi: config_JSON.PATH;
+	let realSurgePath = config_JSON.启用0RTT ? ed+ ppi: config_JSON.PATH;
 
     for (let x of 每行内容) {
         if (x.includes('= tro' + 'jan,')) {
@@ -1581,6 +1582,3 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
-
-
-
